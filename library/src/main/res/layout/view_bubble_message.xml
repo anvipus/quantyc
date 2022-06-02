@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/showCaseMessageViewLayout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingVertical="35dp"
+    android:paddingHorizontal="40dp">
+
+    <TextView
+        android:id="@+id/textViewShowCaseTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="12sp"
+        android:textColor="@color/colorGondola"
+        android:fontFamily="@font/inter_semibold"
+        android:visibility="gone"
+        android:breakStrategy="simple"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:visibility="visible"
+        tools:text="Lorem ipsum dolor sit amet?"
+        tools:targetApi="m"
+        />
+
+    <TextView
+        android:id="@+id/textViewShowCaseText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:textSize="12sp"
+        android:textColor="@color/colorDimGray"
+        android:fontFamily="@font/inter_regular"
+        android:visibility="gone"
+        android:breakStrategy="simple"
+        app:layout_constraintTop_toBottomOf="@id/textViewShowCaseTitle"
+        tools:text="Kamu bisa bayar apapun, kapanpun, dimanapun dengan SPIN yang mendukung QRIS."
+        tools:visibility="visible"
+        tools:targetApi="m"
+        />
+
+    <LinearLayout
+        android:id="@+id/layout_showcase_indicator"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="19dp"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/textViewShowCaseText"
+        app:layout_constraintStart_toStartOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/btn_next_showcase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
+        android:paddingBottom="5dp"
+        android:paddingStart="12dp"
+        android:paddingEnd="11dp"
+        android:text="@string/action_next_showcase"
+        android:textSize="12sp"
+        android:textColor="@color/colorWhite"
+        android:fontFamily="@font/inter_semibold"
+        android:background="@drawable/bg_btn_showcase"
+        app:layout_constraintTop_toTopOf="@id/layout_showcase_indicator"
+        app:layout_constraintBottom_toBottomOf="@id/layout_showcase_indicator"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="Berikutnya"
+        />
+
+    <TextView
+        android:id="@+id/btn_skip_showcase"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="20dp"
+        android:text="@string/action_skip_showcase"
+        android:textSize="12sp"
+        android:textColor="@color/colorLightSkyBlue"
+        android:fontFamily="@font/inter_semibold"
+        app:layout_constraintEnd_toStartOf="@id/btn_next_showcase"
+        app:layout_constraintTop_toTopOf="@id/btn_next_showcase"
+        app:layout_constraintBottom_toBottomOf="@id/btn_next_showcase"
+        tools:text="Lewati"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

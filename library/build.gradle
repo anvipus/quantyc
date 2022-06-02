@@ -1,0 +1,151 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdk versions.compile
+
+    defaultConfig {
+        minSdk versions.min
+        targetSdk versions.target
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        consumerProguardFiles "consumer-rules.pro"
+    }
+
+    buildTypes {
+        debug {
+            minifyEnabled false
+            buildConfigField "String", "KUNCI_GARAM", KUNCI_GARAM
+            resValue "string", "app_name_config", "DEV Android Explore"
+        }
+        release {
+            minifyEnabled false
+            shrinkResources false
+            buildConfigField "String", "KUNCI_GARAM", KUNCI_GARAM
+            resValue "string", "app_name_config", "DEV Android Explore"
+        }
+        staging {
+            initWith debug
+            buildConfigField "String", "KUNCI_GARAM", KUNCI_GARAM
+            resValue "string", "app_name_config", "DEV Android Explore"
+        }
+    }
+    compileOptions {
+        coreLibraryDesugaringEnabled true
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation platform("com.google.firebase:firebase-bom:${versions.firebase_bom}")
+
+    api "androidx.legacy:legacy-support-v4:${versions.legacy_support}"
+    api "androidx.core:core-ktx:${versions.core}"
+    api "androidx.appcompat:appcompat:${versions.androidx}"
+    api "com.google.android.material:material:${versions.material}"
+    api "org.jetbrains.kotlin:kotlin-stdlib:${versions.kotlin}"
+
+    api "androidx.lifecycle:lifecycle-runtime-ktx:${versions.lifecycle_ktx}"
+    api "androidx.lifecycle:lifecycle-viewmodel-ktx:${versions.lifecycle_ktx}"
+    api "androidx.lifecycle:lifecycle-livedata-ktx:${versions.lifecycle_ktx}"
+    api "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycle}"
+
+    api ('com.alimuzaffar.lib:pinentryedittext:2.0.6') {
+        exclude group: 'androidx.appcompat', module: 'appcompat'
+    }
+
+    api "androidx.constraintlayout:constraintlayout:${versions.constraint}"
+
+    api "androidx.camera:camera-core:${versions.camerax}"
+    api "androidx.camera:camera-camera2:${versions.camerax}"
+    api "androidx.camera:camera-lifecycle:${versions.camerax}"
+    api "androidx.camera:camera-view:1.0.0-alpha19"
+
+
+    api "org.jetbrains.kotlinx:kotlinx-coroutines-android:${versions.coroutine}"
+
+    api "com.jakewharton.timber:timber:${versions.timber}"
+
+    api "com.journeyapps:zxing-android-embedded:${versions.journey_zxing}"
+    api "com.google.zxing:core:${versions.zxing}"
+
+    kapt "androidx.lifecycle:lifecycle-common-java8:${versions.lifecycle}"
+
+    api "com.google.android.play:core:${versions.play_core}"
+
+    api "androidx.paging:paging-runtime:${versions.paging}"
+    api "androidx.work:work-runtime-ktx:${versions.worker}"
+
+    api "com.google.android.flexbox:flexbox:${versions.flexbox}"
+
+    api "com.squareup.moshi:moshi-kotlin:${versions.moshi}"
+
+    api "com.squareup.retrofit2:retrofit:${versions.retrofit}"
+    api "com.squareup.retrofit2:converter-moshi:${versions.moshi_con}"
+    api "com.squareup.okhttp3:okhttp:${versions.okhttp}"
+    api "com.squareup.okhttp3:logging-interceptor:${versions.okhttp}"
+
+    api "androidx.navigation:navigation-runtime-ktx:${versions.navigation}"
+    api "androidx.navigation:navigation-fragment-ktx:${versions.navigation}"
+    api "androidx.navigation:navigation-ui-ktx:${versions.navigation}"
+
+    api "com.github.bumptech.glide:glide:${versions.glide}"
+    api('com.github.bumptech.glide:okhttp3-integration:4.11.0') {
+        exclude group: 'glide-parent'
+    }
+
+    api "androidx.viewpager2:viewpager2:${versions.viewpager}"
+    api "androidx.cardview:cardview:${versions.card_view}"
+    api "androidx.recyclerview:recyclerview:${versions.recycler_view}"
+
+    api "com.google.firebase:firebase-analytics-ktx"
+    api "com.google.firebase:firebase-messaging-ktx"
+    api "com.google.firebase:firebase-crashlytics-ktx"
+    api "com.google.firebase:firebase-config-ktx"
+
+    api "com.airbnb.android:lottie:${versions.lottieVersion}"
+
+    api "androidx.security:security-crypto:1.1.0-alpha03"
+
+    api 'com.braintreepayments:card-form:4.2.0'
+    api 'com.vipulasri:ticketview:1.0.7'
+    api 'com.scottyab:rootbeer-lib:0.0.8'
+    api 'com.google.code.gson:gson:2.8.7'
+    api 'com.google.android.material:material:1.5.0'
+
+    api 'com.google.android.gms:play-services-auth:20.0.1'
+    api 'com.google.android.gms:play-services-auth-api-phone:18.0.1'
+    api 'com.google.android.gms:play-services-location:[17.0.0, 17.99.99]'
+
+    api 'com.facebook.shimmer:shimmer:0.5.0'
+    api 'com.google.firebase:firebase-perf-ktx:20.0.4'
+
+    api "androidx.room:room-runtime:${versions.room}"
+
+    api "com.google.dagger:dagger:${versions.dagger}"
+    api "com.google.dagger:dagger-android:${versions.dagger}"
+    api "com.google.dagger:dagger-android-support:${versions.dagger}"
+
+    api "com.squareup.moshi:moshi-kotlin:${versions.moshi}"
+
+    def dynamicanimation_version = "1.0.0"
+    api "androidx.dynamicanimation:dynamicanimation:$dynamicanimation_version"
+
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:${versions.moshi}"
+
+    // Import the BoM for the Firebase platform
+    api platform('com.google.firebase:firebase-bom:27.1.0')
+
+    // Declare the dependencies for the Dynamic Links and Analytics libraries
+    // When using the BoM, you don't specify versions in Firebase library dependencies
+    api 'com.google.firebase:firebase-dynamic-links-ktx'
+    api 'com.google.firebase:firebase-analytics-ktx'
+}

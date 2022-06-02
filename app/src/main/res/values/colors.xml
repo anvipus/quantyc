@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#455EA5</color>
+    <color name="colorPrimaryDark">#2B3489</color>
+    <color name="colorAccent">#455EA5</color>
+
+    <color name="colorButton">#667DCA</color>
+
+    <color name="background">#F9FAFF</color>
+
+    <color name="textBlack">#2B2B2B</color>
+    <color name="textHint">#6D6D6D</color>
+    <color name="colorGrey">#6D6D6D</color>
+    <color name="lightGrey">#B9B9B9</color>
+    <color name="colorArrowBack">#676767</color>
+    <color name="colorToolbarTitle">#363636</color>
+
+    <color name="line">#EAEEF3</color>
+    <color name="empty_color">#CACACA</color>
+
+    <color name="blueLabel">#455EA5</color>
+    <color name="redLabel">#F44336</color>
+    <color name="greenLabel">#6EC500</color>
+
+    <color name="button">@color/colorPrimary</color>
+    <color name="button_pressed">#B3455EA5</color>
+
+    <color name="button_text_enable">@android:color/white</color>
+    <color name="button_text_disable">#B1B1B1</color>
+
+    <color name="vp_indicator_selected">#DB2C18</color>
+    <color name="vp_indicator">#A2AED2</color>
+
+    <color name="colorWhite">#FFFFFF</color>
+    <color name="colorWhite_50">#80FFFFFF</color>
+    <color name="colorWhite_70">#B2FFFFFF</color>
+    <color name="colorBackground">#EEEEEE</color>
+
+    <color name="colorPlaceholder">#81b6b8bd</color>
+
+    <color name="colorTextLoyalty1">#666666</color>
+    <color name="colorTextLoyalty2">#676767</color>
+    <color name="colorTextLoyalty3">#8F8F8F</color>
+    <color name="colorTextLoyalty4">#B9B9B9</color>
+    <color name="colorTextLoyaltyLine">#C4C4C4</color>
+    <color name="colorBlueLoyalty">#9DA6F8</color>
+
+    <color name="yellow">#FFD803</color>
+    <color name="colorGold">#C69320</color>
+    <color name="colorDiamond">#01D0FB</color>
+    <color name="colorSilver">#676767</color>
+    <color name="colorPlatinum">#2D2D2D</color>
+
+    <color name="text_red">#DC2C18</color>
+    <color name="colorBlack_30">#4D000000</color>
+    <color name="colorBlack_10">#1A000000</color>
+
+    <color name="colorTransparent">#00000000</color>
+    <color name="colorBlack">#000000</color>
+    <color name="colorGondola">#363636</color>
+    <color name="colorGondola_30">#4D363636</color>
+    <color name="colorMortar">#595454</color>
+    <color name="colorDimGray">#727272</color>
+    <color name="colorDimGray_20">#33727272</color>
+    <color name="colorDimGray_30">#4D727272</color>
+    <color name="colorDimGrayAlt">#696969</color>
+    <color name="colorSilver_">#B9B9B9</color>
+    <color name="colorGhost">#C7C7CC</color>
+    <color name="colorGainsboro">#E8E8E8</color>
+    <color name="colorHavelockBlue">#667DCA</color>
+    <color name="colorPortage">#7881D4</color>
+    <color name="colorLightSkyBlue">#9DA6F8</color>
+    <color name="colorPictonBlue">#52A8D3</color>
+    <color name="colorPortage_20">#337881D4</color>
+    <color name="colorLavenderBlue">#CED3FC</color>
+    <color name="colorGhostWhite">#F9FAFF</color>
+    <color name="colorHawkesBlue">#ECEEF6</color>
+    <color name="colorPattensBlue">#F2F4FA</color>
+    <color name="colorWhiteSmoke">#EAEAEA</color>
+    <color name="colorWhite_">#FAFAFA</color>
+    <color name="colorWhiteSmoke_">#ECECEC</color>
+    <color name="colorWhite_30">#4DFFFFFF</color>
+    <color name="colorLavender">#EEF3FD</color>
+    <color name="colorSolitude">#EFEFF4</color>
+    <color name="colorCitrus">#6EC500</color>
+    <color name="colorHarleyDavidsonOrange">#DC2C18</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorRedOrange">#FF3B30</color>
+    <color name="colorGorse">#FFE13E</color>
+
+</resources>
