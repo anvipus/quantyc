@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.activityViewModels
 import com.anvipus.explore.R
 import com.anvipus.explore.base.BaseFragment
+import com.bumptech.glide.Glide
 import com.codedisruptors.dabestofme.di.Injectable
 import javax.inject.Inject
 
@@ -31,6 +32,7 @@ class MainFragment : BaseFragment(), Injectable {
         savedInstanceState: Bundle?
     ): View {
         return inflater.inflate(R.layout.main_fragment, container, false)
+
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
