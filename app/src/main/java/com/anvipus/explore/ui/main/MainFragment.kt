@@ -20,7 +20,7 @@ class MainFragment : BaseFragment(), Injectable {
 
     override val layoutResource: Int
         get() = R.layout.main_fragment
-    
+
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
