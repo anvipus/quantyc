@@ -118,15 +118,13 @@ dependencies {
     api 'com.braintreepayments:card-form:4.2.0'
     api 'com.vipulasri:ticketview:1.0.7'
     api 'com.scottyab:rootbeer-lib:0.0.8'
-    api 'com.google.code.gson:gson:2.8.7'
-    api 'com.google.android.material:material:1.5.0'
+    api 'com.google.code.gson:gson:2.9.0'
 
-    api 'com.google.android.gms:play-services-auth:20.0.1'
+    api 'com.google.android.gms:play-services-auth:20.2.0'
     api 'com.google.android.gms:play-services-auth-api-phone:18.0.1'
     api 'com.google.android.gms:play-services-location:[17.0.0, 17.99.99]'
 
     api 'com.facebook.shimmer:shimmer:0.5.0'
-    api 'com.google.firebase:firebase-perf-ktx:20.0.4'
 
     api "androidx.room:room-runtime:${versions.room}"
 
@@ -148,4 +146,5 @@ dependencies {
     // When using the BoM, you don't specify versions in Firebase library dependencies
     api 'com.google.firebase:firebase-dynamic-links-ktx'
     api 'com.google.firebase:firebase-analytics-ktx'
+    api 'com.google.firebase:firebase-perf-ktx'
 }
