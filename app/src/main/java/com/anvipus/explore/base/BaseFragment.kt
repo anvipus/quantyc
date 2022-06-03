@@ -11,6 +11,7 @@ import android.text.style.ClickableSpan
 import android.view.*
 import androidx.core.content.res.ResourcesCompat
 import androidx.core.view.WindowInsetsControllerCompat
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.DefaultLifecycleObserver
 import androidx.lifecycle.lifecycleScope
@@ -18,7 +19,11 @@ import androidx.navigation.NavDirections
 import androidx.navigation.fragment.findNavController
 import com.anvipus.explore.MainActivity
 import com.anvipus.explore.R
+import com.anvipus.explore.utils.hide
+import com.anvipus.explore.utils.show
+import com.anvipus.explore.utils.showIf
 import com.anvipus.library.util.resColor
+import com.anvipus.library.util.resDrawable
 import com.scottyab.rootbeer.RootBeer
 
 abstract class BaseFragment: Fragment() {
@@ -56,7 +61,25 @@ abstract class BaseFragment: Fragment() {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-
+        main?.apply {
+            //showBottomNav(showBottomNav)
+            layoutToolbar.let{
+                it.showIf(showToolbar)
+                if(it.isVisible){
+                    toolbarTitle.text = if (headTitle != 0) {
+                        toolbarLogo.hide()
+                        toolbarTitle.show()
+                        getString(headTitle)
+                    } else {
+                        ""
+                    }
+                }else {
+                    it.hide()
+                }
+                //showAppBar(showToolbar)
+                toolbar.menu.clear()
+            }
+        }
 
     }
 
@@ -157,4 +180,28 @@ abstract class BaseFragment: Fragment() {
     }
 
     fun navController() = findNavController()
+
+    protected fun ownTitle(title: String){
+        main?.toolbar?.title = ""
+        main?.setTitleToolbar(title)
+    }
+
+    protected fun showLogo(){
+        main?.hideTitleToolbar()
+    }
+
+    protected fun ownIcon(res: Int?){
+        main?.toolbar?.navigationIcon = if(res == null) null else context?.resDrawable(res)
+    }
+
+    protected fun ownMenu(menu: Int, menuCallback: (MenuItem)-> Unit){
+        main?.toolbar?.apply {
+            inflateMenu(menu)
+            setOnMenuItemClickListener {
+                menuCallback.invoke(it)
+                true
+            }
+        }
+    }
+
 }

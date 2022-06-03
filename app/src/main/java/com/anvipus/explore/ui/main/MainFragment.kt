@@ -20,6 +20,7 @@ class MainFragment : BaseFragment(), Injectable {
 
     override val layoutResource: Int
         get() = R.layout.main_fragment
+    
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -34,6 +35,8 @@ class MainFragment : BaseFragment(), Injectable {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        ownIcon(null)
+        showLogo()
         // TODO: Use the ViewModel
     }
 
