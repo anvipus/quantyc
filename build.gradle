@@ -4,36 +4,37 @@ ext {
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 buildscript {
     ext.versions = [
-            'compile'       : 31,
+            'compile'       : 33,
             'min'           : 21,
-            'target'        : 31,
-            'androidx'      : '1.4.2',
+            'target'        : 33,
+            'androidx'      : '1.5.1',
             'arch'          : '2.1.0-alpha07',
             'camerax'       : '1.0.0-beta12',
-            'core'          : '1.9.0-alpha04',
+            'core'          : '1.9.0',
             'coroutine'     : '1.6.1',
-            'constraint'    : '2.1.2',
+            'constraint'    : '2.1.4',
             'crashlytics'   : '2.9.9',
             'dagger'        : '2.37',
             'flexbox'       : '3.0.0',
-            'firebase_bom'  : '28.4.2',
-            'glide'         : '4.11.0',
-            'gson'          : '2.8.5',
-            'kotlin'        : '1.6.0',
-            'kotlin_plugin' : '1.5.31',
+            'firebase_bom'  : '31.0.2',
+            'glide'         : '4.14.2',
+            'gson'          : '2.10',
+            'kotlin'        : '1.7.20',
+            'kotlin_plugin' : '1.7.20',
             'kotterknife'   : '0.1.0-SNAPSHOT',
             'legacy_support': '1.0.0',
             'lifecycle'     : '2.3.1',
             'lifecycle_ktx' : '2.4.0',
-            'lottieVersion' : '4.2.0',
-            'material'      : '1.6.1',
+            'livedata_ktx'  : '2.5.1',
+            'lottieVersion' : '5.2.0',
+            'material'      : '1.7.0',
             'moshi_con'     : '2.8.1',
-            'moshi'         : '1.12.0',
-            'navigation'    : '2.4.0-beta02',
-            'okhttp'        : '4.6.0',
-            'paging'        : '3.1.0',
+            'moshi'         : '1.14.0',
+            'navigation'    : '2.5.3',
+            'okhttp'        : '4.10.0',
+            'paging'        : '3.1.1',
             'retrofit'      : '2.8.1',
-            'room'          : '2.3.0',
+            'room'          : '2.4.3',
             'test_runner'   : '1.2.0',
             'test_espresso' : '3.2.0',
             'junit'         : '4.13.1',
@@ -47,14 +48,19 @@ buildscript {
             'gcp'           : '_gcp',
             'worker'        : '2.7.1',
             'zxing'         : '3.3.3',
-            'timber'        : '4.7.1',
+            'timber'        : '5.0.1',
             'journey_zxing' : '3.6.0',
             'recycler_view' : '1.2.1',
             'card_view'     : '1.0.0',
             'pinentryedittext':'2.0.6',
+            'sift'          :'1.2.0',
+            'gms_version'   :'20.0.0',
             'country_code_picker':'2.6.0',
-            'sift'          :'1.0.0',
-            'gms_version'   :'19.0.1'
+            'biometric'     : '1.1.0',
+            'mnc_identifiersdk_core'       : '1.1.1',
+            'mnc_identifiersdk_ocr'        : '1.1.1',
+            'mnc_identifier_face_recog'    : '1.0.1',
+            'jwt_decode'    : '2.0.2'
     ]
     repositories {
         google()
@@ -62,13 +68,14 @@ buildscript {
         maven { url 'https://plugins.gradle.org/m2/'}
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:7.0.2'
+        classpath 'com.android.tools.build:gradle:7.3.1'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:${versions.kotlin_plugin}"
         classpath "androidx.navigation:navigation-safe-args-gradle-plugin:${versions.navigation}"
-        classpath 'com.google.gms:google-services:4.3.10'
-        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.8.1'
-        classpath 'com.google.firebase:perf-plugin:1.4.1'
-        classpath 'com.google.firebase:firebase-appdistribution-gradle:3.0.0'
+        classpath 'com.google.gms:google-services:4.3.14'
+        classpath 'com.google.firebase:firebase-crashlytics-gradle:2.9.2'
+        classpath 'gradle.plugin.com.onesignal:onesignal-gradle-plugin:[0.13.4, 0.99.99]'
+        classpath 'com.google.firebase:perf-plugin:1.4.2'
+        classpath 'com.google.firebase:firebase-appdistribution-gradle:3.1.1'
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
     }

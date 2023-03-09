@@ -22,6 +22,9 @@ class MainFragment : BaseFragment(), Injectable {
     override val layoutResource: Int
         get() = R.layout.main_fragment
 
+    override val statusBarColor: Int
+        get() = R.color.colorAccent
+
 
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
@@ -37,8 +40,8 @@ class MainFragment : BaseFragment(), Injectable {
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
+        ownTitle("")
         ownIcon(null)
-        showLogo()
         // TODO: Use the ViewModel
     }
 

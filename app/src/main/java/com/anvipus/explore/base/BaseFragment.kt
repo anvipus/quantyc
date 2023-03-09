@@ -62,6 +62,9 @@ abstract class BaseFragment: Fragment() {
         super.onActivityCreated(savedInstanceState)
 
         main?.apply {
+            if(showToolbarLogo.not()){
+                main?.hideTitleToolbar()
+            }
             //showBottomNav(showBottomNav)
             layoutToolbar.let{
                 it.showIf(showToolbar)
