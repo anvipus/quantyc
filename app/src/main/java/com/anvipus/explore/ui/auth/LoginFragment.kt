@@ -65,12 +65,10 @@ class LoginFragment : BaseFragment(), Injectable {
             btnLogin.setOnClickListener {
                 try{
                     val gson = Gson()
-                    val sharedPrefOrderId = am.getString(Constants.KEY_LIST_USER)
-                    var isRegistered = false
-                    var data: User? = null
-                    if(sharedPrefOrderId.isNullOrEmpty().not()) {
+                    val listUserJSon = am.getString(Constants.KEY_LIST_USER)
+                    if(listUserJSon.isNullOrEmpty().not()) {
                         val listUser =
-                            gson.fromJson(sharedPrefOrderId, Array<User>::class.java).asList()
+                            gson.fromJson(listUserJSon, Array<User>::class.java).asList()
 
                         for (data2 in listUser) {
                             if (data2.username!!.equals(

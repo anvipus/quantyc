@@ -9,6 +9,8 @@ import kotlinx.android.parcel.Parcelize
 @JsonClass(generateAdapter = true)
 @Parcelize
 data class User (
+    @Json(name = "id")
+    val id: Int?,
     @Json(name = "username")
     val username: String?,
     @Json(name = "email")
@@ -17,4 +19,11 @@ data class User (
     val password: String?,
     @Json(name = "isAdmin")
     val isAdmin: Boolean = false
-) : Parcelable
+) : Parcelable{
+
+    val viewId get() = "ID : "+id
+    val viewUsername get() = "Username : "+username
+    val viewEmail get() = "Email : "+email
+
+    val viewAdmin get() = "isAdmin : "+isAdmin
+}

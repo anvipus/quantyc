@@ -6,6 +6,8 @@ import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import androidx.core.content.ContextCompat
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.anvipus.explore.R
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.DataSource
@@ -28,6 +30,10 @@ fun Activity.closeKeyboard() {
 }
 fun View.show() {
     this.visibility = View.VISIBLE
+}
+
+fun RecyclerView.linear() {
+    this.layoutManager = LinearLayoutManager(context)
 }
 
 fun View.hide(type: Int = 1) {

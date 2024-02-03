@@ -63,7 +63,6 @@ class RegisterFragment : BaseFragment(), Injectable {
                     val gson = Gson()
                     val sharedPrefOrderId = am.getString(Constants.KEY_LIST_USER)
                     var isRegistered = false
-                    val data = User(username = etUsername.text.toString(), password = etPassword.text.toString(), email = etEmail.text.toString(), isAdmin = scAdmin.isChecked)
                     if(sharedPrefOrderId.isNullOrEmpty().not()){
                         val listUser = gson.fromJson(sharedPrefOrderId, Array<User>::class.java).asList()
 
@@ -76,15 +75,21 @@ class RegisterFragment : BaseFragment(), Injectable {
                         }
                         am.listUser.clear()
                         am.listUser.addAll(listUser)
+                        val data = User(id = listUser.size+1,username = etUsername.text.toString(), password = etPassword.text.toString(), email = etEmail.text.toString(), isAdmin = scAdmin.isChecked)
                         am.listUser.add(data)
+                        if(!isRegistered){
+                            val json = gson.toJson(am.listUser)
+                            am.putString(Constants.KEY_LIST_USER,json)
+                            navigate(RegisterFragmentDirections.actionToMain(data))
+                        }
                     }else{
+                        val data = User(id = 1,username = etUsername.text.toString(), password = etPassword.text.toString(), email = etEmail.text.toString(), isAdmin = scAdmin.isChecked)
                         am.listUser.add(data)
-                    }
-                    if(!isRegistered){
                         val json = gson.toJson(am.listUser)
                         am.putString(Constants.KEY_LIST_USER,json)
                         navigate(RegisterFragmentDirections.actionToMain(data))
                     }
+
                 }catch (e:Exception){
                     e.printStackTrace()
                     Toast.makeText(requireContext(), e.message.toString(), Toast.LENGTH_SHORT).show()
