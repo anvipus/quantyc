@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Build
 import androidx.security.crypto.EncryptedSharedPreferences
 import androidx.security.crypto.MasterKey
+import com.anvipus.library.model.User
 import com.anvipus.library.util.Constants
 import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.Moshi
@@ -20,6 +21,8 @@ class AccountManager(appContext: Context) {
     private val SESSION_CUSTOMER = "`$SESSION_NAME`.user.obj"
     private val SESSION_API_KEY = "`$SESSION_NAME`.user.api.key"
     private val SESSION_PUSH_TOKEN = "`$SESSION_NAME`.user.push.token"
+
+    var listUser: MutableList<User> = ArrayList()
 
 
     private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()

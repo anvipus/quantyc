@@ -2,6 +2,7 @@ package com.anvipus.explore.di.module
 
 import android.app.Application
 import com.anvipus.explore.api.AuthApi
+import com.anvipus.library.util.state.AccountManager
 import com.chuckerteam.chucker.api.ChuckerCollector
 import com.chuckerteam.chucker.api.ChuckerInterceptor
 import dagger.Module
@@ -55,6 +56,10 @@ class AppModule {
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
     }
+
+    @Provides
+    @Singleton
+    fun provideAccountManager(application: Application): AccountManager = AccountManager(application)
 
 //    @Provides
 //    @Singleton

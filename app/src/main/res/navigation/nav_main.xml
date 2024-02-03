@@ -3,11 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    app:startDestination="@id/fragment_main">
+    app:startDestination="@id/fragment_login">
+    <fragment
+        android:id="@+id/fragment_login"
+        android:name="com.anvipus.explore.ui.auth.LoginFragment"
+        android:label=""
+        tools:layout="@layout/login_fragment">
+        <action
+            android:id="@+id/action_to_register"
+            app:destination="@id/fragment_register" />
+        <action
+            android:id="@+id/action_to_main"
+            app:destination="@id/fragment_main" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_register"
+        android:name="com.anvipus.explore.ui.auth.RegisterFragment"
+        android:label=""
+        tools:layout="@layout/register_fragment">
+
+        <action
+            android:id="@+id/action_to_main"
+            app:destination="@id/fragment_main" />
+    </fragment>
     <fragment
         android:id="@+id/fragment_main"
         android:name="com.anvipus.explore.ui.main.MainFragment"
         android:label=""
         tools:layout="@layout/main_fragment">
+        <argument
+            android:name="data"
+            app:argType="com.anvipus.library.model.User" />
     </fragment>
 </navigation>

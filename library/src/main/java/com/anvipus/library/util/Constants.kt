@@ -143,5 +143,7 @@ class Constants {
         //DEEPLINK
         const val DEEPLINK_EXTRA_AUTH_ID = "auth-id"
         const val DEEPLINK_EXTRA_ORDER_ID = "order-id"
+
+        const val KEY_LIST_USER = "list_user"
     }
 }
