@@ -1,6 +1,7 @@
 package com.anvipus.explore.di.module
 
 import android.app.Application
+import com.anvipus.explore.BuildConfig
 import com.anvipus.explore.api.AuthApi
 import com.anvipus.library.util.state.AccountManager
 import com.chuckerteam.chucker.api.ChuckerCollector
@@ -51,7 +52,7 @@ class AppModule {
     @Singleton
     fun provideServiceBuilder(client: OkHttpClient): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("")
+            .baseUrl(BuildConfig.BASE_URL)
             .client(client)
             .addConverterFactory(MoshiConverterFactory.create())
             .build()
@@ -61,7 +62,8 @@ class AppModule {
     @Singleton
     fun provideAccountManager(application: Application): AccountManager = AccountManager(application)
 
-//    @Provides
-//    @Singleton
-//    fun provideAuthApi(builder: Retrofit): AuthApi = builder.create(AuthApi::class.java)
+    @Provides
+    @Singleton
+    fun provideUsershApi(builder: Retrofit): AuthApi = builder.create(AuthApi::class.java)
+
 }

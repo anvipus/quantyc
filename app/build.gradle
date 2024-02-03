@@ -48,6 +48,7 @@ android {
             minifyEnabled false
             shrinkResources false
             applicationIdSuffix ".dev"
+            buildConfigField "String", "BASE_URL", BASE_URL
             signingConfig signingConfigs.config
             buildConfigField "String", "VERSION_STRING", "\"" +defaultConfig.versionName.toString()+versions.dev.toString()+ "\""
             resValue "string", "app_name_config", "DEV Android Explore"
@@ -64,6 +65,7 @@ android {
             shrinkResources true
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             signingConfig signingConfigs.config
+            buildConfigField "String", "BASE_URL", BASE_URL
             buildConfigField "String", "VERSION_STRING", "\"" +defaultConfig.versionName.toString()+ "\""
             resValue "string", "app_name_config", " Android Explore"
 //            firebaseAppDistribution {
@@ -77,6 +79,7 @@ android {
             initWith debug
             applicationIdSuffix ".staging"
             signingConfig signingConfigs.config
+            buildConfigField "String", "BASE_URL", BASE_URL
             buildConfigField "String", "VERSION_STRING", "\"" +defaultConfig.versionName.toString()+versions.staging.toString()+ "\""
             resValue "string", "app_name_config", "Stag Android Explore"
 //            firebaseAppDistribution {

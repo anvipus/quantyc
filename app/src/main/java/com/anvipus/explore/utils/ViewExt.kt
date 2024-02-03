@@ -19,6 +19,37 @@ import com.bumptech.glide.request.transition.Transition
 import com.bumptech.glide.signature.ObjectKey
 import com.google.android.material.imageview.ShapeableImageView
 
+
+fun ImageView.load(url: String?, placeholder: Int? = null, success: ((Boolean) -> Unit)? = null) {
+    GlideApp.with(context).load(url)
+        .placeholder(placeholder ?: R.drawable.ic_placeholder)
+        .error(placeholder ?: R.drawable.ic_placeholder)
+        .signature(ObjectKey(System.currentTimeMillis()))
+        .listener(object : RequestListener<Drawable> {
+            override fun onLoadFailed(
+                e: GlideException?,
+                model: Any?,
+                target: Target<Drawable>?,
+                isFirstResource: Boolean
+            ): Boolean {
+                success?.invoke(false)
+                return false
+            }
+
+            override fun onResourceReady(
+                resource: Drawable?,
+                model: Any?,
+                target: Target<Drawable>?,
+                dataSource: DataSource?,
+                isFirstResource: Boolean
+            ): Boolean {
+
+                success?.invoke(true)
+                return false
+            }
+        }).into(this)
+}
+
 fun Activity.closeKeyboard() {
     var focus = currentFocus
     if (focus == null) {

@@ -28,6 +28,8 @@ data class User (
     val viewAdmin get() = "isAdmin : "+isAdmin
 }
 
+@JsonClass(generateAdapter = true)
+@Parcelize
 data class Album (
     @Json(name = "albumId")
     val albumId: Int?,
@@ -39,4 +41,7 @@ data class Album (
     val url: String?,
     @Json(name = "thumbnailUrl")
     val thumbnailUrl: String?
-) : Parcelable
+) : Parcelable{
+    val viewId get() = "ID : "+id
+    val viewTitle get() = "Title : "+title
+}

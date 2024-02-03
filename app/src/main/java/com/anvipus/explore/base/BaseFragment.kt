@@ -22,13 +22,14 @@ import com.anvipus.explore.R
 import com.anvipus.explore.utils.hide
 import com.anvipus.explore.utils.show
 import com.anvipus.explore.utils.showIf
+import com.anvipus.library.util.ProgressDialog
 import com.anvipus.library.util.resColor
 import com.anvipus.library.util.resDrawable
 import com.scottyab.rootbeer.RootBeer
 
 abstract class BaseFragment: Fragment() {
 
-
+    private var mProgressDialog: ProgressDialog? = null
     protected abstract val layoutResource: Int
 
     protected open val showBottomNav: Boolean = false
@@ -204,6 +205,41 @@ abstract class BaseFragment: Fragment() {
                 menuCallback.invoke(it)
                 true
             }
+        }
+    }
+
+    protected fun showProgress(isShown: Boolean, isCancelable: Boolean = true, isTransaction: Boolean = false) {
+        if (isShown) {
+            startProgress(isCancelable, isTransaction)
+        } else {
+            stopProgress()
+        }
+    }
+
+    private fun startProgress(isCancelable: Boolean, isTransaction: Boolean) {
+        try {
+            if (mProgressDialog != null) {
+                mProgressDialog?.dismiss()
+                mProgressDialog = null
+            }
+            mProgressDialog = ProgressDialog.newInstance(
+                isCancelable = isCancelable, hasNavController = true, isTransaction = isTransaction
+            )
+            mProgressDialog!!.show(childFragmentManager, ProgressDialog.TAG)
+            mProgressDialog!!.isCancelable = false
+        } catch (e: IllegalStateException) {
+            e.printStackTrace()
+        }
+    }
+
+    private fun stopProgress() {
+        try {
+            if (mProgressDialog != null) {
+                mProgressDialog!!.dismiss()
+                mProgressDialog = null
+            }
+        } catch (e: IllegalStateException) {
+            e.printStackTrace()
         }
     }
 

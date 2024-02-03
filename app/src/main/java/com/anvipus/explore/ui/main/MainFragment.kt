@@ -13,6 +13,7 @@ import com.anvipus.explore.base.BaseFragment
 import com.anvipus.explore.databinding.LoginFragmentBinding
 import com.anvipus.explore.databinding.MainFragmentBinding
 import com.anvipus.explore.utils.linear
+import com.anvipus.library.model.Status
 import com.anvipus.library.model.User
 import com.anvipus.library.util.Constants
 import com.anvipus.library.util.state.AccountManager
@@ -45,13 +46,14 @@ class MainFragment : BaseFragment(), Injectable {
     private val params by navArgs<MainFragmentArgs>()
 
     private val userAdapter = UserListAdapter()
+    private val albumAdapter = AlbumAdapter()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         if(params.data != null && params.data.isAdmin != null && params.data.isAdmin ){
             ownTitle("List User")
         }else{
-            ownTitle("Home")
+            ownTitle("List Album")
         }
 
         ownIcon(null)
@@ -85,6 +87,18 @@ class MainFragment : BaseFragment(), Injectable {
 
             }
             else{
+                with(viewModelMain){
+                    with(rvMain){
+                        linear()
+                        adapter = albumAdapter
+                    }
+                    getListAlbum().observe(viewLifecycleOwner){
+                        showProgress(isShown = it?.status == Status.LOADING, isCancelable = false)
+                        if(it?.status == Status.SUCCESS) {
+                            albumAdapter.submitList(it.data)
+                        }
+                    }
+                }
 
             }
         }

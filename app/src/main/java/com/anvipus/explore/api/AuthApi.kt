@@ -1,5 +1,11 @@
 package com.anvipus.explore.api
 
-interface AuthApi {
+import com.anvipus.library.model.Album
+import retrofit2.Call
+import retrofit2.http.GET
+import retrofit2.http.QueryMap
 
+interface AuthApi {
+    @GET("photos")
+    fun getListAlbum(): Call<List<Album>>
 }
